@@ -22,3 +22,4 @@ git clone https://github.com/Miftah-Fentaw/Mira-AI.git
 cd mira-ai
 flutter pub get
 flutter run # Mira-AI
+# Mira-AI
