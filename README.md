@@ -1,8 +1,7 @@
 # Mira AI
 
-# description
 
-- a simple ai chatbot app built with flutter and grok API
+# a simple ai chatbot app built with flutter and grok API
 
 ## Screenshots
 
