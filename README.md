@@ -6,7 +6,7 @@
 
 ## Screenshots
 
-<img src="screenshots/home.png" width="250"/>  <img src="screenshots/chat.png" width="250"/> <img src="screenshots/drawer.png" width="250"/>
+<img src="screenshots/onboarding1.jpg" width="250"/>  <img src="screenshots/onboarding2.jpg" width="250"/> <img src="screenshots/home.jpg" width="250"/>  <img src="screenshots/chat.jpg" width="250"/> <img src="screenshots/drawer.jpg" width="250"/>
 
 *(Tap any image to enlarge)*
 
