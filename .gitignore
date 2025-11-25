@@ -32,7 +32,7 @@ migrate_working_dir/
 .pub/
 /build/
 /coverage/
-/apikey.dart
+lib/apikey.dart
 
 
 # Symbolication related
