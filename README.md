@@ -6,9 +6,14 @@
 
 ## Screenshots
 
-<img src="assets/screenshots/onboarding1.jpg" width="100"/>
-<img src="assets/screenshots/onboarding2.jpg" width="100"/>
-<img src="assets/screenshots/home.jpg" width="100"/>  <img src="assets/screenshots/chat.jpg" width="100"/> <img src="assets/screenshots/drawer.jpg" width="100"/> 
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+  <img src="assets/screenshots/onboarding1.jpg" width="100"/>
+  <img src="assets/screenshots/onboarding2.jpg" width="100"/>
+  <img src="assets/screenshots/home.jpg" width="100"/>
+  <img src="assets/screenshots/chat.jpg" width="100"/>
+  <img src="assets/screenshots/drawer.jpg" width="100"/>
+</div>
+
 
 *(Tap any image to enlarge)*
 
