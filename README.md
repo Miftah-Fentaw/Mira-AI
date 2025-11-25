@@ -6,9 +6,9 @@
 
 ## Screenshots
 
-![Onboarding1](screenshots/onboarding1.jpg){ width=250 }
-![Onboarding2](screenshots/onboarding2.jpg){ width=250 }
-![Home](screenshots/home.jpg){ width=250 }  ![Chat](screenshots/chat.jpg){ width=250 } ![Drawer](screenshots/drawer.jpg){ width=250 }
+![Onboarding1](assets/screenshots/onboarding1.jpg){ width=250 }
+![Onboarding2](assets/screenshots/onboarding2.jpg){ width=250 }
+![Home](assets/screenshots/home.jpg){ width=250 }  ![Chat](assets/screenshots/chat.jpg){ width=250 } ![Drawer](assets/screenshots/drawer.jpg){ width=250 }
 
 *(Tap any image to enlarge)*
 
