@@ -1,3 +1,4 @@
+import 'package:chatbot/screens/feedback_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:chatbot/providers/chat_provider.dart';
@@ -6,6 +7,7 @@ import 'package:chatbot/widgets/chat_input.dart';
 import 'package:chatbot/widgets/loading_indicator.dart';
 import 'package:chatbot/widgets/message_bubble.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:go_router/go_router.dart';
 
 class ChatScreen extends ConsumerStatefulWidget {
   const ChatScreen({super.key});
@@ -161,7 +163,12 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                       title: 'Send Feedback',
                       onTap: () {
                         Navigator.pop(context);
-                        launchUrl(Uri.parse('https://tally.so/r/3X2k9P'));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FeedbackScreen(),
+                          ),
+                        );
                       },
                     ),
                     _buildDrawerItem(

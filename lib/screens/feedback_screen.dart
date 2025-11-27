@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:chatbot/apikey.dart';
 
 class FeedbackScreen extends StatefulWidget {
   const FeedbackScreen({super.key});
@@ -20,7 +21,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
       ..setBackgroundColor(const Color(0x00000000))
       ..loadRequest(
         Uri.parse(
-          'endpoint url',
+          formkey,
         ),
       )
       ..setNavigationDelegate(
@@ -37,19 +38,21 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.pinkAccent,
-        title: const Text("Feedback"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
       body: Stack(
         children: [
-          WebViewWidget(controller: _controller),
+          WebViewWidget(
+            
+            controller: _controller),
           if (isLoading)
             const Center(child: CircularProgressIndicator()),
+          Positioned(
+            top: 20,
+            left: 20,
+            child: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => Navigator.pop(context),
+            ),
+          )
         ],
       ),
     );
