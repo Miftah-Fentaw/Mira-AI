@@ -1,3 +1,4 @@
+import 'package:chatbot/screens/feedback_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -44,6 +45,13 @@ class MyApp extends ConsumerWidget {
               child: ChatScreen(),
             ),
           ),
+          GoRoute(
+            path: '/feedback',
+            name: 'feedback',
+            pageBuilder: (context, state) => NoTransitionPage(
+              child: FeedbackScreen(),
+            ),
+          ),  
         ],
         redirect: (context, state) {
           final onboarding = ref.read(onboardingProvider);
