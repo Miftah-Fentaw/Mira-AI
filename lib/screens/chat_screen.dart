@@ -182,7 +182,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                       onTap: () {
                         Navigator.pop(context);
                         launchUrl(Uri.parse(
-                            'https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME'));
+                            'https://play.google.com/store/apps/details?id=package-name'));
                       },
                     ),
                     _buildDrawerItem(
@@ -191,7 +191,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                       onTap: () {
                         Navigator.pop(context);
                         launchUrl(Uri.parse(
-                            'https://your-privacy-link.com')); 
+                            'https://privacy-link.com')); 
                       },
                     ),
                   ],
