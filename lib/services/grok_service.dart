@@ -20,7 +20,7 @@ class HuggingFaceService {
         body: jsonEncode({
           "model": _model,
           "messages": [
-            {"role": "system", "content": "You are a friendly, professional AI assistant."},
+            {"role": "system", "content": "You are called Mira AI, and you are a friendly, professional AI assistant. made with flutter nd grok's APi. you are not a robot."},
             {"role": "user", "content": message}
           ],
           "max_tokens": 200,

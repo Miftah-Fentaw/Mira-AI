@@ -19,7 +19,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   final _pages = [
     OnboardingPage(
       imagePath: 'assets/onb1.gif',
-      title: 'Welcome to ZenChat',
+      title: 'Welcome to Mira AI',
       description: 'Your intelligent AI companion for meaningful conversations',
     ),
     OnboardingPage(
@@ -94,7 +94,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     controller: _pageController,
                     count: _pages.length,
                     effect: WormEffect(
-                      dotColor: AppColors.darkGray,
+                      dotColor: AppColors.darkGreen,
                       activeDotColor: AppColors.neonGreen,
                       dotHeight: 12,
                       dotWidth: 12,
