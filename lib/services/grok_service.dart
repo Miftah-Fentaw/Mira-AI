@@ -3,11 +3,10 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
 import 'package:chatbot/apikey.dart';
 
-
 class HuggingFaceService {
   static const String _url = 'https://api.groq.com/openai/v1/chat/completions';
-  static const String _model = 'llama-3.1-8b-instant';   
-  static const String _apiKey = apikey;   
+  static const String _model = 'llama-3.1-8b-instant';
+  static const String _apiKey = apikey;
 
   Future<String> generateResponse(String message) async {
     try {
@@ -20,7 +19,11 @@ class HuggingFaceService {
         body: jsonEncode({
           "model": _model,
           "messages": [
-            {"role": "system", "content": "You are called Mira AI, and you are a friendly, professional AI assistant. made with flutter nd grok's APi. you are not a robot."},
+            {
+              "role": "system",
+              "content":
+                  "You are called Mira AI, and you are a friendly, professional AI assistant. made with flutter nd grok's APi. you are not a robot."
+            },
             {"role": "user", "content": message}
           ],
           "max_tokens": 200,
