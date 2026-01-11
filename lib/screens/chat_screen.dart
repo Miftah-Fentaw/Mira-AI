@@ -7,7 +7,6 @@ import 'package:chatbot/widgets/chat_input.dart';
 import 'package:chatbot/widgets/loading_indicator.dart';
 import 'package:chatbot/widgets/message_bubble.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:go_router/go_router.dart';
 
 class ChatScreen extends ConsumerStatefulWidget {
   const ChatScreen({super.key});
@@ -129,7 +128,6 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              
               Container(
                 padding: EdgeInsets.all(AppSpacing.xl),
                 child: Row(
@@ -153,11 +151,103 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
 
               Divider(color: AppColors.darkGreen.withOpacity(0.3), height: 1),
 
-              
+              // NEW CHAT BUTTON
+              Padding(
+                padding: EdgeInsets.all(AppSpacing.md),
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    ref.read(chatProvider.notifier).newChat();
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.add, color: AppColors.deepBlack),
+                  label: Text('New Chat',
+                      style: TextStyle(
+                          color: AppColors.deepBlack,
+                          fontWeight: FontWeight.bold)),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.neonGreen,
+                    minimumSize: Size(double.infinity, 50),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                  ),
+                ),
+              ),
+
+              // RECENT CHATS TITLE
+              if (chatState.sessions.isNotEmpty)
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: AppSpacing.xl, vertical: AppSpacing.sm),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Recent Chats',
+                        style: TextStyle(
+                            color: Colors.white38,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.2)),
+                  ),
+                ),
+
+              // CHAT SESSIONS LIST
               Expanded(
                 child: ListView(
-                  padding: EdgeInsets.symmetric(vertical: AppSpacing.md),
+                  padding: EdgeInsets.symmetric(vertical: AppSpacing.xs),
                   children: [
+                    ...chatState.sessions.map((session) {
+                      final isSelected =
+                          chatState.currentSessionId == session.id;
+                      return Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: AppSpacing.md, vertical: 2),
+                        child: ListTile(
+                          onTap: () {
+                            ref
+                                .read(chatProvider.notifier)
+                                .switchSession(session.id);
+                            Navigator.pop(context);
+                          },
+                          leading: Icon(Icons.chat_bubble_outline_rounded,
+                              color: isSelected
+                                  ? AppColors.neonGreen
+                                  : Colors.white70,
+                              size: 20),
+                          title: Text(
+                            session.title,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: isSelected ? Colors.white : Colors.white70,
+                              fontSize: 14,
+                              fontWeight: isSelected
+                                  ? FontWeight.bold
+                                  : FontWeight.normal,
+                            ),
+                          ),
+                          trailing: isSelected
+                              ? IconButton(
+                                  icon: Icon(Icons.delete_sweep_outlined,
+                                      color: Colors.white38, size: 18),
+                                  onPressed: () {
+                                    ref
+                                        .read(chatProvider.notifier)
+                                        .deleteSession(session.id);
+                                  },
+                                )
+                              : null,
+                          selected: isSelected,
+                          selectedTileColor:
+                              AppColors.neonGreen.withOpacity(0.1),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                          contentPadding:
+                              EdgeInsets.symmetric(horizontal: AppSpacing.md),
+                        ),
+                      );
+                    }),
+                    Divider(
+                        color: AppColors.darkGreen.withOpacity(0.1),
+                        height: 32),
                     _buildDrawerItem(
                       icon: Icons.feedback_rounded,
                       title: 'Send Feedback',
@@ -190,8 +280,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                       title: 'Privacy Policy',
                       onTap: () {
                         Navigator.pop(context);
-                        launchUrl(Uri.parse(
-                            'https://privacy-link.com')); 
+                        launchUrl(Uri.parse('https://privacy-link.com'));
                       },
                     ),
                   ],
